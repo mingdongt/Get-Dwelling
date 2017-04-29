@@ -3,9 +3,6 @@ GetDwelling
 
 An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 1997-2015.
 
-.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
-     :target: https://github.com/pydanny/cookiecutter-django/
-     :alt: Built with Cookiecutter Django
 
 
 Settings
