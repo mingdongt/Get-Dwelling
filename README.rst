@@ -33,6 +33,7 @@ Running Locally With Docke
 This can take a while, especially the first time you run this particular command on your development system:
 
 docker-compose -f dev.yml build
+
 **Boot the System**
 docker-compose -f dev.yml up
 
