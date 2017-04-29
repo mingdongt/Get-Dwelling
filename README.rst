@@ -15,6 +15,14 @@ Moved to settings_.
 
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
+
+Data source
+-----------
+
+The source data is saved as a static CSV file <b>Residential_dwellings.csv</b>.
+
+Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 1997-2015. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
+
 Basic Commands
 --------------
 
