@@ -26,6 +26,16 @@ Data collected as part of the City of Melbourne's Census of Land Use and Employm
 Basic Commands
 --------------
 
+
+Running Locally With Docke
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Build the Stack**
+This can take a while, especially the first time you run this particular command on your development system:
+
+docker-compose -f dev.yml build
+**Boot the System**
+docker-compose -f dev.yml up
+
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
