@@ -49,12 +49,14 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'bootstrap3',
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
     'getdwelling.users.apps.UsersConfig',
+    'getdwelling.dwelling',
     # Your stuff: custom apps go here
 ]
 
