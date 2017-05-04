@@ -36,3 +36,11 @@
 [hidden][style="display: block;"] {
   display: block !important;
 }
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
