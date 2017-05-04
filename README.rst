@@ -3,7 +3,16 @@ GetDwelling
 
 An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 1997-2015.
 
+Data source
+-----------
 
+The source data is saved as a static CSV file **Residential_dwellings.csv**.
+
+Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 1997-2015. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
+
+See detailed `Residential dwellings | Open Data | Socrata`_.
+
+.. _`Residential dwellings | Open Data | Socrata`: https://data.melbourne.vic.gov.au/Property-Planning/Residential-dwellings/44kh-ty54
 
 Settings
 --------
@@ -13,19 +22,12 @@ Moved to settings_.
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
 
-Data source
------------
-
-The source data is saved as a static CSV file **Residential_dwellings.csv**.
-
-Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 1997-2015. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
-
 Basic Commands
 --------------
 
 
-Running Locally With Docke
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Running Locally With Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 **Build the Stack**
 
 This can take a while, especially the first time you run this particular command on your development system::
