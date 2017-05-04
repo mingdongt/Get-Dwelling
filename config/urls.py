@@ -4,7 +4,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
-
+from django.contrib.staticfiles.views import serve as serve_static
+from django.views.decorators.cache import never_cache
 urlpatterns = [
     # url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     # url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
@@ -31,6 +32,9 @@ if settings.DEBUG:
         url(r'^403/$', default_views.permission_denied, kwargs={'exception': Exception('Permission Denied')}),
         url(r'^404/$', default_views.page_not_found, kwargs={'exception': Exception('Page not Found')}),
         url(r'^500/$', default_views.server_error),
+
+        # Disable django automatically caching.
+        url(r'^static/(?P<path>.*)$', never_cache(serve_static))
     ]
     if 'debug_toolbar' in settings.INSTALLED_APPS:
         import debug_toolbar
