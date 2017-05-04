@@ -49,3 +49,8 @@ redis>=2.10.5
 
 
 # Your custom requirements go here
+
+
+pandas==0.19.2
+
+django-bootstrap3==8.2.2
