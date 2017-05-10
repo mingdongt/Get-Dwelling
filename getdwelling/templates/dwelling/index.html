@@ -2,25 +2,21 @@
 
 
 {% block content %}
-{# Load the tag library #}
-{% load bootstrap3 %}
 
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+    {# Logo #}
+    <img src="{% static 'images/getdwelling.png' %}" title="Get Dwelling" class="center" alt="Get Dwelling"/>
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
 
-{# Display a form #}
-<form action="/url/to/submit/" method="post" class="form">
-  {% csrf_token %}
-{#  {% bootstrap_form form %}#}
-  {% buttons %}
-    <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "star" %} Submit
-    </button>
-  {% endbuttons %}
-</form>
+    {# View Data button #}
+    <form action="/data_source" method="get" class="form">
+
+            <input type="submit" value="View Dwelling Data" class="data-source-button btn btn-hg btn-primary">
+    </form>
+
+    {# Make Analysis button #}
+    <form action="/data_source" method="get" class="form">
+        {% csrf_token %}
+            <input type="submit" value="Make Analysis" class="analyze-data-button btn btn-hg btn-primary">
+    </form>
 
 {% endblock %}
