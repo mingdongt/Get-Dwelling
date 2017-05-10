@@ -3,12 +3,13 @@ GetDwelling
 
 An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 1997-2015.
 
+.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
 Data source
 -----------
 
 The source data is saved as a static CSV file **Residential_dwellings.csv**.
 
-Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 1997-2015. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
+Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 2002-2016. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
 
 See detailed `Residential dwellings | Open Data | Socrata`_.
 
