@@ -1,9 +1,9 @@
 GetDwelling
 ===========
 
-An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 1997-2015.
+An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 2002-2016.
 
-.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
+.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/Demo_Web.png
 Data source
 -----------
 
