@@ -7,5 +7,12 @@ class IndexView(TemplateView):
 
     template_name = 'dwelling/index.html'
 
+#FIXME
+from django.http import HttpResponse
 
 
+def DataSourceView(request):
+    return HttpResponse("data source")
+
+def DataAnalyzeView(request):
+    return HttpResponse("data analyze")
