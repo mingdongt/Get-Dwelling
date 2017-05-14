@@ -7,13 +7,13 @@
     <img src="{% static 'images/getdwelling.png' %}" title="Get Dwelling" class="center" alt="Get Dwelling"/>
 
 
-    {# View Data button #}
+    {# Button used to redirect to "View Data" page. #}
     <form action="/source" method="get" class="form">
 
             <input type="submit" value="View Dwelling Data" class="data-source-button btn btn-hg btn-primary">
     </form>
 
-    {# Make Analysis button #}
+    {# Button used to redirect to "Make Analysis" page. #}
     <form action="/analyze" method="get" class="form">
         {% csrf_token %}
             <input type="submit" value="Make Analysis" class="analyze-data-button btn btn-hg btn-primary">
