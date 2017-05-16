@@ -8,15 +8,15 @@
 
 
     {# Button used to redirect to "View Data" page. #}
-    <form action="/source" method="get" class="form">
-
-            <input type="submit" value="View Dwelling Data" class="data-source-button btn btn-hg btn-primary">
+    <form action="/source" method="get">
+        {% csrf_token %}
+        <input type="submit" value="View Dwelling Data" class="center btn btn-hg btn-primary">
     </form>
 
     {# Button used to redirect to "Make Analysis" page. #}
-    <form action="/analyze" method="get" class="form">
+    <form action="/analyze" method="get">
         {% csrf_token %}
-            <input type="submit" value="Make Analysis" class="analyze-data-button btn btn-hg btn-primary">
+        <input type="submit" value="Make Analysis" class="center btn btn-hg btn-primary">
     </form>
 
 {% endblock %}
