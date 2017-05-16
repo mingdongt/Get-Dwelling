@@ -39,19 +39,8 @@
 
 .center {
   display: block;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
-
-.data-source-button {
-  position:fixed;
-  left:610px;
-  top:400px;
-}
-
-.analyze-data-button {
-  position:fixed;
-  left:630px;
-  top:470px;
-}
