@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
+{% block css %}
+    {# Flat UI CSS library #}
+    <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
+    {# This file stores project-specific CSS #}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+
+{% endblock %}
 
 {% block content %}
 
     {# Logo #}
     <img src="{% static 'images/getdwelling.png' %}" title="Get Dwelling" class="center" alt="Get Dwelling"/>
-
 
     {# Button used to redirect to "View Data" page. #}
     <form action="/source" method="get">
