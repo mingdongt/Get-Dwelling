@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+    {{ block.super }}
+    <link href="{% static '/DataTables/media/css/jquery.dataTables.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<table id="data_source_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+
+    {{ block.super }}
+    <script type="text/javascript" charset="utf8" src="{% static '/DataTables/media/js/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript" charset="utf8" src="{% static 'js/data_source.js' %}"></script>
+
+{% endblock %}
