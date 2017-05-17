@@ -11,8 +11,8 @@ class IndexView(TemplateView):
     template_name = 'dwelling/index.html'
 
 
-def DataSourceView(request):
-    return HttpResponse("data source")
+class DataSourceView(TemplateView):
+    template_name = 'dwelling/data_source.html'
 
 
 def DataAnalyzeView(request):
