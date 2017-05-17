@@ -2,43 +2,61 @@
 
 {% block css %}
 
-    {{ block.super }}
+    {# Semantic UI CSS library #}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet">
+    {# Datatables CSS library #}
     <link href="{% static '/DataTables/media/css/jquery.dataTables.css' %}" rel="stylesheet">
+    <link href="{% static '/DataTables/media/css/dataTables.semanticui.min.css' %}" rel="stylesheet">
 
 {% endblock %}
 
 {% block content %}
-<table id="data_source_table" class="display" cellspacing="0" width="100%">
+
+{#  Table header and footer  #}
+<table id="data_source_table" class="ui celled table" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>Census year</th>
+                <th>Block ID</th>
+                <th>Property ID</th>
+                <th>Base property ID</th>
+                <th>Street address</th>
+                <th>CLUE small area</th>
+                <th>Dwelling type</th>
+                <th>Dwelling number</th>
+                <th>x coordinate</th>
+                <th>y coordinate</th>
+                <th>Location</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>Census year</th>
+                <th>Block ID</th>
+                <th>Property ID</th>
+                <th>Base property ID</th>
+                <th>Street address</th>
+                <th>CLUE small area</th>
+                <th>Dwelling type</th>
+                <th>Dwelling number</th>
+                <th>x coordinate</th>
+                <th>y coordinate</th>
+                <th>Location</th>
             </tr>
         </tfoot>
     </table>
-
-
 
 {% endblock %}
 
 {% block javascript %}
 
     {{ block.super }}
+    {# Datatables JS library #}
     <script type="text/javascript" charset="utf8" src="{% static '/DataTables/media/js/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript" charset="utf8" src="{% static '/DataTables/media/js/dataTables.semanticui.min.js' %}"></script>
+    {# Semantic UI JS library #}
+    <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+    {#  Project specific JS module  #}
     <script type="text/javascript" charset="utf8" src="{% static 'js/data_source.js' %}"></script>
 
 {% endblock %}
