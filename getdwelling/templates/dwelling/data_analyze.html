@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block css %}
+    {{ block.super }}
+    {# Flat UI CSS library #}
+    <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    {#  Include "HOME" button here  #}
+    {% include "dwelling/home_button.html" %}
+
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send message" />
+    </form>
+{% endblock %}
+

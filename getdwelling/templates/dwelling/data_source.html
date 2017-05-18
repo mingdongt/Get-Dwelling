@@ -14,11 +14,8 @@
 
 {% block content %}
 
-    {# Button used to go back to home page. #}
-    <form action="/" method="get">
-        {% csrf_token %}
-        <input type="submit" value="      HOME      " class="btn btn-embossed btn-primary home-button">
-    </form>
+    {#  Include "HOME" button here  #}
+    {% include "dwelling/home_button.html" %}
 
 {# Data source table #}
 <table id="data_source_table" class="ui celled table" cellspacing="0" width="100%">
