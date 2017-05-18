@@ -2,6 +2,7 @@
  * Created by mingdongtan on 17/5/17.
  */
 
+// Read data file by using AJAX.
 
 $(document).ready(function() {
 
