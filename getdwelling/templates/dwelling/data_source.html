@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block css %}
+    {{ block.super }}
     {# Flat UI CSS library #}
     <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
     {# Semantic UI CSS library #}
@@ -8,9 +9,6 @@
     {# Datatables CSS library #}
     <link href="{% static '/DataTables/media/css/jquery.dataTables.css' %}" rel="stylesheet">
     <link href="{% static '/DataTables/media/css/dataTables.semanticui.min.css' %}" rel="stylesheet">
-
-    {# This file stores project-specific CSS #}
-    <link href="{% static 'css/data_source.css' %}" rel="stylesheet">
 
 {% endblock %}
 
