@@ -12,3 +12,9 @@
 .index-logo {
     margin-top: 100px;
 }
+
+body {
+
+    background-image: url("http://localhost:8000/static/images/background.jpg");
+    background-size: cover ;
+}
