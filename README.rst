@@ -8,12 +8,7 @@ An interactive web application providing live gathering, processing, visualisati
 Data source
 -----------
 
-
 Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 2002-2016. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
-
-See detailed `Residential dwellings | Open Data | Socrata`_.
-
-.. _`Residential dwellings | Open Data | Socrata`: https://data.melbourne.vic.gov.au/Property-Planning/Residential-dwellings/44kh-ty54
 
 Settings
 --------
