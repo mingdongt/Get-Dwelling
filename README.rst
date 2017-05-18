@@ -3,8 +3,8 @@ GetDwelling
 
 An interactive web application providing live gathering, processing, visualisation and analysis on dwelling data in Melbourne during the period 2002-2016.
 
-.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Index.png
-.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/data_source.png
+.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Home.png
+.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Data%20source.png
 Data source
 -----------
 
