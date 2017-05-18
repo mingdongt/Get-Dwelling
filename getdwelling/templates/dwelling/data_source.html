@@ -15,7 +15,9 @@
 {% block content %}
 
     {#  Include "HOME" button here  #}
-    {% include "dwelling/home_button.html" %}
+    <div class="basic">
+        {% include "dwelling/home_button.html" %}
+    </div>
 
 {# Data source table #}
 <table id="data_source_table" class="ui celled table" cellspacing="0" width="100%">
@@ -66,7 +68,7 @@
     <script type="text/javascript" charset="utf8" src="{% static '/DataTables/media/js/dataTables.semanticui.min.js' %}"></script>
     {# Semantic UI JS library #}
     <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
-    {#  Project specific JS module  #}
+    {#  Page specific JS module  #}
     <script type="text/javascript" charset="utf8" src="{% static 'js/data_source.js' %}"></script>
 
 {% endblock %}
