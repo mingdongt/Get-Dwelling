@@ -1,20 +1,33 @@
 {% extends "base.html" %}
 
 {% block css %}
-
+    {# Flat UI CSS library #}
+    <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
     {# Semantic UI CSS library #}
     <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet">
     {# Datatables CSS library #}
     <link href="{% static '/DataTables/media/css/jquery.dataTables.css' %}" rel="stylesheet">
     <link href="{% static '/DataTables/media/css/dataTables.semanticui.min.css' %}" rel="stylesheet">
 
+    {# This file stores project-specific CSS #}
+    <link href="{% static 'css/data_source.css' %}" rel="stylesheet">
+
 {% endblock %}
 
 {% block content %}
 
-{#  Table header and footer  #}
+    {# Button used to go back to home page. #}
+    <form action="/" method="get">
+        {% csrf_token %}
+        <input type="submit" value="      HOME      " class="btn btn-embossed btn-primary home-button">
+    </form>
+
+{# Data source table #}
 <table id="data_source_table" class="ui celled table" cellspacing="0" width="100%">
+
+        {#  Table header #}
         <thead>
+
             <tr>
                 <th>Census year</th>
                 <th>Block ID</th>
@@ -29,6 +42,8 @@
                 <th>Location</th>
             </tr>
         </thead>
+
+        {#  Table footer  #}
         <tfoot>
             <tr>
                 <th>Census year</th>
