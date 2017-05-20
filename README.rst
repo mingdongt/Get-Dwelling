@@ -5,6 +5,7 @@ An interactive web application providing live gathering, processing, visualisati
 
 .. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Home.png
 .. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Data%20source.png
+.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Data%20analyze.png
 Data source
 -----------
 
