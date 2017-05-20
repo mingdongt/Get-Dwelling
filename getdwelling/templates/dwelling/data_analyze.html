@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block css %}
     {{ block.super }}
+
+    {# Loading Bootstrap #}
+    <link href="{% static 'FlatUI/dist/css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
     {# Flat UI CSS library #}
     <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
 
@@ -10,11 +15,110 @@
 {% block content %}
 
     {#  Include "HOME" button here  #}
-    {% include "dwelling/home_button.html" %}
+    <div class="basic">
+        {% include "dwelling/home_button.html" %}
+    </div>
 
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Send message" />
-    </form>
+{#    <p class="h5 page-header">Column </p>#}
+
+    <div style="margin-left: 20px">
+
+
+        <form action="" method="post">{% csrf_token %}
+
+            {# Filter area ---------------------------------------------------------------------------------------------------------------#}
+            <p class="h5 page-header">Filter</p>
+
+            {# Census year range field #}
+            <div >
+                <p>{{ form.census_year_range.label }}</p>
+                {% render_field form.census_year_range class="form-control multiselect multiselect-info"%}
+
+            </div>
+            <br>
+
+            {# ClUE small area field #}
+            <div >
+                <p>{{ form.clue_small_area.label }}</p>
+                {% render_field form.clue_small_area class="form-control multiselect multiselect-info"%}
+            </div>
+            <br>
+
+            {# Dwelling type field #}
+            <div >
+                <p>{{ form.dwelling_type.label }}</p>
+                {% render_field form.dwelling_type class="form-control multiselect multiselect-info"%}
+            </div>
+            <br>
+
+            {# Dwelling number field #}
+            <div >
+
+                <p>Dwelling Number Range:</p>
+                {% render_field form.dwelling_number_min class="form-control" style="display:inline; width: 100px" placeholder="Min"%}
+                ~
+                {% render_field form.dwelling_number_max class="form-control" style="display:inline; width: 100px" placeholder="Max"%}
+            </div>
+            <br>
+
+            {# Search street address field #}
+            <div >
+                <p>{{ form.search_street_address.label }}</p>
+                {% render_field form.search_street_address class="form-control" style="width: 220px" placeholder="(Optional)"%}
+            </div>
+            <br>
+
+            {# Table area ---------------------------------------------------------------------------------------------------------------#}
+            <p class="h5 page-header"> Table </p>
+
+            {# Row field #}
+            <div style="display: inline-block">
+                <p>{{ form.row.label }}</p>
+                {% render_field form.row class="form-control select select-primary select-block mbl"%}
+            </div>
+
+            {# Column field #}
+            <div style="display: inline-block">
+                <p>{{ form.column.label }}</p>
+                {% render_field form.column class="form-control select select-primary select-block mbl"%}
+            </div>
+
+            {# Aggregation function field #}
+            <div style="display: inline-block">
+                <p>{{ form.aggregation_function.label }}</p>
+                {% render_field form.aggregation_function class="form-control select select-primary select-block mbl"%}
+            </div>
+
+
+
+
+            {# Submit button #}
+            <div style="display: inline-block; margin-left: 100px">
+
+                <input type="submit" value="Build analysis"  class="btn btn-hg btn-danger"/>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+        </form>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+
+    {{ block.super }}
+    {# FIXME   #}
+    <script src="{% static 'FlatUI/dist/js/vendor/jquery.min.js'%}"></script>
+    <script type="text/javascript" charset="utf8" src="{% static 'FlatUI/dist/js/flat-ui.js' %}"></script>
+    <script type="text/javascript" charset="utf8" src="{% static 'FlatUI/docs/assets/js/application.js' %}"></script>
+    <script type="text/javascript" charset="utf8" src="{% static 'js/data_analyze.js' %}"></script>
+
+
+
 {% endblock %}
 
