@@ -19,15 +19,16 @@
         {% include "dwelling/home_button.html" %}
     </div>
 
-{#    <p class="h5 page-header">Column </p>#}
-
     <div style="margin-left: 20px">
 
 
-        <form action="" method="post">{% csrf_token %}
+        <form method="post">{% csrf_token %}
 
             {# Filter area ---------------------------------------------------------------------------------------------------------------#}
             <p class="h5 page-header">Filter</p>
+
+            {# Help text #}
+            <small style="color: #95A5A6">(Note: All if not specified)</small>
 
             {# Census year range field #}
             <div >
@@ -55,9 +56,9 @@
             <div >
 
                 <p>Dwelling Number Range:</p>
-                {% render_field form.dwelling_number_min class="form-control" style="display:inline; width: 100px" placeholder="Min"%}
+                {% render_field form.dwelling_number_min class="form-control" style="display:inline; width: 100px" placeholder="Optional"%}
                 ~
-                {% render_field form.dwelling_number_max class="form-control" style="display:inline; width: 100px" placeholder="Max"%}
+                {% render_field form.dwelling_number_max class="form-control" style="display:inline; width: 100px" placeholder="Optional"%}
             </div>
             <br>
 
@@ -67,6 +68,7 @@
                 {% render_field form.search_street_address class="form-control" style="width: 220px" placeholder="(Optional)"%}
             </div>
             <br>
+
 
             {# Table area ---------------------------------------------------------------------------------------------------------------#}
             <p class="h5 page-header"> Table </p>
