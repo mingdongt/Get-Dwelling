@@ -51,3 +51,7 @@ pandas==0.19.2
 
 # Form rendering
 django-widget-tweaks==1.4.1
+
+# PyTables
+tables==3.4.2
+
