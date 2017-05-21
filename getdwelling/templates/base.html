@@ -23,8 +23,19 @@
 
     {% block css %}
 
-        {# This file stores page-specific CSS #}
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        {# Loading Bootstrap #}
+        <link href="{% static 'FlatUI/dist/css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        {% block base-css %}
+
+            {# This file stores page-specific CSS #}
+            <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+            {# Flat UI CSS library #}
+            <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
+
+        {% endblock %}
+
     {% endblock %}
 
   </head>

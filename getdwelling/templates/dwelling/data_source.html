@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block css %}
-    {{ block.super }}
-    {# Flat UI CSS library #}
-    <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
+
+    {% block base-css %}
+        {{ block.super }}
+    {% endblock %}
+
     {# Semantic UI CSS library #}
     <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet">
+
     {# Datatables CSS library #}
     <link href="{% static '/DataTables/media/css/jquery.dataTables.css' %}" rel="stylesheet">
     <link href="{% static '/DataTables/media/css/dataTables.semanticui.min.css' %}" rel="stylesheet">

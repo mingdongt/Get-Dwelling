@@ -1,17 +1,6 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
 
-{% block css %}
-    {{ block.super }}
-
-    {# Loading Bootstrap #}
-    <link href="{% static 'FlatUI/dist/css/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    {# Flat UI CSS library #}
-    <link href="{% static 'FlatUI/dist/css/flat-ui.css' %}" rel="stylesheet">
-
-{% endblock %}
-
 {% block content %}
 
     {#  Include "HOME" button here  #}
