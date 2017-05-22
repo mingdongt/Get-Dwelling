@@ -54,7 +54,9 @@ You’ll need at least Docker 1.10.
 If you don’t already have it installed, follow the instructions for your OS:
 
 On Mac OS X, you’ll need Docker for Mac_.
+
 On Windows, you’ll need Docker for Windows_.
+
 On Linux, you’ll need docker-engine_.
 
 .. _Mac: https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine
@@ -64,7 +66,7 @@ On Linux, you’ll need docker-engine_.
 .. _docker-engine: https://docs.docker.com/engine/installation/
 
 
-Build the Stack
+1. Build the Stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This can take a while, especially the first time you run this particular command on your development system::
@@ -72,9 +74,14 @@ This can take a while, especially the first time you run this particular command
     $ docker-compose -f dev.yml build
 
 
-Boot the System
+2. Boot the System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open a terminal at the project root and run the following for local development::
 
     $ docker-compose -f dev.yml up
+
+3. Run the application
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that the server’s running, visit http://127.0.0.1:8000/ with your Web browser.
