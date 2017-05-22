@@ -264,4 +264,9 @@ class DataAnalyzeView(FormView):
         return functools.reduce(np.logical_and, conditions)
 
 
+class InsightsView(TemplateView):
+
+    template_name = 'dwelling/data_insights.html'
+
+
 

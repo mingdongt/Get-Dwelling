@@ -26,4 +26,10 @@
         <input type="submit" value="Make Analysis" class="btn btn-hg btn-primary center index-button">
     </form>
 
+        {# Button used to redirect to "Make Analysis" page. #}
+    <form action="/insights" method="get">
+        {% csrf_token %}
+        <input type="submit" value="Simple Insights" class="btn btn-hg btn-primary center index-button">
+    </form>
+
 {% endblock %}
