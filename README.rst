@@ -25,13 +25,18 @@ Data source
 
 Data collected as part of the City of Melbourne's Census of Land Use and Employment (CLUE). The data covers the period 2002-2016. The dwelling data is based on the Council's property rates database, using a simplified classification schema of Residential Apartment, House/Townhouse and Student Apartment. The count of dwellings per residential building is shown.
 
+Pre-processing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 **New Column**
 
 New column "Dwelling number class" got added to make it possible to classify records based on dwelling number class instead of unique values which are too many.
 
 **File Format Transfer**
 
-The original data file is transferred from csv format to hdf5 format to make it read fastest.
+1. The original data file is transferred from *CSV* format to HDF5 format to make it read fastest.
+
+1. The original data file is transferred from CSV format to JSON format to make it read by AJAX (only for this moment, API views would be enabled for data source page in the future).
 
 Settings
 --------
@@ -85,3 +90,6 @@ Open a terminal at the project root and run the following for local development:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that the server’s running, visit http://127.0.0.1:8000/ with your Web browser.
+
+
+
