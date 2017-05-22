@@ -13,7 +13,7 @@ from django.shortcuts import render
 
 from .forms import AnalyzeInputForm
 
-DATA_FILE_NAME = 'data---.h5'
+DATA_FILE_NAME = 'data.h5'
 
 LARGE_FIELD_MAP = {
     'Dwelling number': 'Dwelling number class',
