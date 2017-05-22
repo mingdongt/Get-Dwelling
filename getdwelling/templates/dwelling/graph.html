@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {#  Include "HOME" button here  #}
+    <div class="basic">
+        {% include "dwelling/analyze_page_button.html" %}
+    </div>
+
+    <div id="pivot-table" style="height: 800px; min-width: 620px; max-width: 1600px; margin: 0 auto"></div>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+    {{ block.super }}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    {#  Include pivot table here  #}
+    <div class="basic">
+        {% include "dwelling/pivot_table.html" %}
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+<script type="text/javascript">
+
+    Highcharts.chart('pivot-table', {
+
+        chart: {
+            type: 'heatmap',
+            marginTop: 40,
+            marginBottom: 80,
+            plotBorderWidth: 1
+        },
+
+
+        title: {
+            text: "{{ title }}"
+        },
+
+        xAxis: {
+            categories: {{ rows|safe }}
+        },
+
+        yAxis: {
+            categories: {{ columns|safe }},
+            title: null
+        },
+
+        colorAxis: {
+            min: 0,
+            minColor: '#FFFFFF',
+            maxColor: Highcharts.getOptions().colors[0]
+        },
+
+        legend: {
+            align: 'right',
+            layout: 'vertical',
+            margin: 0,
+            verticalAlign: 'top',
+            y: 25,
+            symbolHeight: 600
+        },
+
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.point.value + '</b> <br><b>' +
+                    this.series.xAxis.categories[this.point.x]  + '</b><br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+            }
+        },
+
+        series: [{
+            name: '',
+            borderWidth: 1,
+            data: {{ spots|safe }},
+            dataLabels: {
+                enabled: true,
+                color: '#000000'
+            }
+        }]
+    });
+
+</script>
