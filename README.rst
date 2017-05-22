@@ -30,13 +30,13 @@ Pre-processing
 
 **New Column**
 
-New column "Dwelling number class" got added to make it possible to classify records based on dwelling number class instead of unique values which are too many.
+New column "Dwelling number class" got added to make it possible to classify records based on "Dwelling number class" instead of unique dwelling number which are too many to display.
 
 **File Format Transfer**
 
-1. The original data file is transferred from *CSV* format to HDF5 format to make it read fastest.
+1. The original data file is transferred from *CSV* format to *HDF5* format to make it read fastest.
 
-1. The original data file is transferred from CSV format to JSON format to make it read by AJAX (only for this moment, API views would be enabled for data source page in the future).
+1. The original data file is transferred from *CSV* format to *JSON* format to make it read by AJAX (only for this moment, API views would be enabled for data source page in the future).
 
 Settings
 --------
