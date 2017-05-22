@@ -1,16 +1,11 @@
 from django import forms
+from collections import namedtuple
 
 CENSUS_YEAR_CHOICES = (
     (
-        'All',
-        (
-            ('All', 'All'),
-        )
-    ),
-    (
         '2002-2006',
         (
-            (range(2002, 2006 + 1), '2002-2016'),
+            ('2002-2006', '2002-2006'),
             (2002, '2002'),
             (2003, '2003'),
             (2004, '2004'),
@@ -21,7 +16,7 @@ CENSUS_YEAR_CHOICES = (
     (
         '2007-2011',
         (
-            (range(2007, 2011 + 1), '2007-2011'),
+            ('2007-2011', '2007-2011'),
             (2007, '2007'),
             (2008, '2008'),
             (2009, '2009'),
@@ -32,7 +27,7 @@ CENSUS_YEAR_CHOICES = (
     (
         '2012-2016',
         (
-            (range(2012, 2016 + 1), '2012-2016'),
+            ('2012-2016', '2012-2016'),
             (2012, '2012'),
             (2013, '2013'),
             (2014, '2014'),
@@ -43,7 +38,6 @@ CENSUS_YEAR_CHOICES = (
 )
 
 CLUE_SMALL_AREA_CHOICES = (
-    ('All', 'All'),
     ('Carlton', 'Carlton'),
     ('Docklands', 'Docklands'),
     ('East Melbourne', 'East Melbourne'),
@@ -60,23 +54,35 @@ CLUE_SMALL_AREA_CHOICES = (
 )
 
 DWELLING_TYPE_CHOICES = (
-        ('All', 'All'),
         ('House/Townhouse', 'House/Townhouse'),
         ('Residential Apartments', 'Residential Apartments'),
         ('Student Apartments', 'Student Apartments'),
 )
 
-DIMENSION_CHOICES= (
-    ('Census Year', 'Census Year'),
-    ('CLUE Small Area', 'CLUE Small Area'),
-    ('Dwelling Type', 'Dwelling Type'),
+DIMENSION_CHOICES = (
+    ('None', 'None'),
+    ('Census year', 'Census Year'),
+    ('CLUE small area', 'CLUE Small Area'),
+    ('Dwelling type', 'Dwelling Type'),
+    ('Street address', 'Street Address'),
+    ('Dwelling number', 'Dwelling Number'),
 )
+
+AGG_CHOICES = (
+    ('', 'Required'),
+    ('Census year', 'Census Year'),
+    ('Dwelling number', 'Dwelling Number'),
+)
+
+
+Filter_field = namedtuple('Filter_field', ['field', 'type', 'data_file_field'])
 
 
 class AnalyzeInputForm(forms.Form):
 
+    # Filter conditions
     census_year_range = forms.MultipleChoiceField(
-        label="Census Year Range:",
+        label="Census Year:",
         choices=CENSUS_YEAR_CHOICES,
         required=False,
     )
@@ -103,24 +109,44 @@ class AnalyzeInputForm(forms.Form):
         label="Search Street Address:",
     )
 
+    # Graph information.
     row = forms.ChoiceField(
         required=True,
         choices=DIMENSION_CHOICES,
     )
     column = forms.ChoiceField(
         required=True,
-        choices=DIMENSION_CHOICES
+        choices=DIMENSION_CHOICES,
     )
+    aggregation_field = forms.ChoiceField(
+        required=True,
+        choices=AGG_CHOICES,
+        label="Aggregation Field",
+    )
+
     aggregation_function = forms.ChoiceField(
         required=True,
         choices=(
-            ('Sum', 'Sum'),
-            ('Maximum', 'Maximum'),
-            ('Minimum', 'Minimum'),
-            ('Average', 'Average'),
-            ('Median', 'Median'),
-            ('Count', 'Count'),
-        )
+            ('count', 'Count of Records'),
+            ('sum', 'Sum'),
+            ('max', 'Maximum'),
+            ('min', 'Minimum'),
+            ('mean', 'Average'),
+            ('median', 'Median'),
+            ('var', 'Variance'),
+        ),
+        label="Aggregation Method"
     )
 
+    def __init__(self, *args, **kwargs):
+        super(AnalyzeInputForm, self).__init__(*args, **kwargs)
 
+        # NOTE: Define here if new filter fields get added.
+        self.filter_fields = (
+            Filter_field('census_year_range', 'choices', 'Census year'),
+            Filter_field('clue_small_area', 'choices', 'CLUE small area'),
+            Filter_field('dwelling_type', 'choices', 'Dwelling type'),
+            Filter_field('dwelling_number_min', 'min_number', 'Dwelling number'),
+            Filter_field('dwelling_number_max', 'max_number', 'Dwelling number'),
+            Filter_field('search_street_address', 'choices', 'Street address')
+        )

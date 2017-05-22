@@ -62,16 +62,25 @@
             {# Table area ---------------------------------------------------------------------------------------------------------------#}
             <p class="h5 page-header"> Table </p>
 
+            {# Help text #}
+            <small style="color: #95A5A6; display: block">(Note: Aggregation field is required)</small>
+
             {# Row field #}
             <div style="display: inline-block">
                 <p>{{ form.row.label }}</p>
-                {% render_field form.row class="form-control select select-primary select-block mbl"%}
+                {% render_field form.row class="form-control select select-primary select-block mbl unique-dropdown"%}
             </div>
 
             {# Column field #}
             <div style="display: inline-block">
                 <p>{{ form.column.label }}</p>
-                {% render_field form.column class="form-control select select-primary select-block mbl"%}
+                {% render_field form.column class="form-control select select-primary select-block mbl unique-dropdown" %}
+            </div>
+
+            {# Aggregation value field #}
+            <div style="display: inline-block">
+                <p>{{ form.aggregation_field.label }}</p>
+                {% render_field form.aggregation_field class="form-control select select-primary select-block mbl unique-dropdown"%}
             </div>
 
             {# Aggregation function field #}
@@ -79,8 +88,6 @@
                 <p>{{ form.aggregation_function.label }}</p>
                 {% render_field form.aggregation_function class="form-control select select-primary select-block mbl"%}
             </div>
-
-
 
 
             {# Submit button #}
@@ -104,6 +111,7 @@
 
     {{ block.super }}
     {# FIXME   #}
+
     <script src="{% static 'FlatUI/dist/js/vendor/jquery.min.js'%}"></script>
     <script type="text/javascript" charset="utf8" src="{% static 'FlatUI/dist/js/flat-ui.js' %}"></script>
     <script type="text/javascript" charset="utf8" src="{% static 'FlatUI/docs/assets/js/application.js' %}"></script>
