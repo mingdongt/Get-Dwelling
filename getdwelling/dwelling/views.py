@@ -12,7 +12,7 @@ from django.views.generic import (
 from django.shortcuts import render
 
 from .forms import AnalyzeInputForm
-from insights_table_parameter import INSIGHTS_TABLES_PARAMETER
+from insights_table_parameter import INSIGHTS_PARAMETER
 DATA_FILE_NAME = 'data.h5'
 
 LARGE_FIELD_MAP = {
@@ -139,7 +139,7 @@ class DataAnalyzeView(FormView):
             context_kwargs['columns'] = table_columns
 
             response_kwargs['context'] = context_kwargs
-        # raise Exception
+        raise Exception
         return render(**response_kwargs)
 
     def get_table_title(self, title, *args):
@@ -224,9 +224,6 @@ class DataAnalyzeView(FormView):
                     condition = form_data[field.field]
 
                 filter_conditions[field] = condition
-                #
-                # if field.field == 'search_street_address':
-                #     filter_conditions[field] = [condition]
 
         return filter_conditions
 
@@ -315,10 +312,8 @@ class InsightsView(TemplateView):
 
     template_name = 'dwelling/data_insights.html'
 
-
     def get_context_data(self, **kwargs):
 
-        context = INSIGHTS_TABLES_PARAMETER[int(self.kwargs['order'])-1]
-        context['order'] = self.kwargs['order']
+        context = INSIGHTS_PARAMETER[int(self.kwargs['order'])-1]
 
         return context
