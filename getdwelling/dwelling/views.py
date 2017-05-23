@@ -12,7 +12,7 @@ from django.views.generic import (
 from django.shortcuts import render
 
 from .forms import AnalyzeInputForm
-
+from insights_table_parameter import INSIGHTS_TABLES_PARAMETER
 DATA_FILE_NAME = 'data.h5'
 
 LARGE_FIELD_MAP = {
@@ -38,6 +38,8 @@ class DataAnalyzeView(FormView):
     template_name = 'dwelling/data_analyze.html'
     graph_template = 'dwelling/graph.html'
 
+    # Maximum field classes in the table.
+    field_class_limit = 100
 
     def post(self, request, *args, **kwargs):
         self.request = request
@@ -110,14 +112,26 @@ class DataAnalyzeView(FormView):
                 table_rows = self.get_table_row_fields(pivot_table)
                 table_columns = ['']
 
-
             else:
-                table_kwargs['columns'], table_kwargs['index'] = [column], [row]
+                table_kwargs['columns'], table_kwargs['index'] = \
+                    [column], [row]
                 pivot_table = pandas.pivot_table(**table_kwargs)
 
                 table_rows = self.get_table_row_fields(pivot_table)
                 table_columns = self.get_table_column_fields(pivot_table)
                 table_title = self.get_table_title(base_title, row, column)
+
+            # Handle large table error here. (Street address)
+            error = self.has_large_table_error(
+                table_columns,
+                table_rows,
+                row,
+                column,
+                context_kwargs,
+                response_kwargs,
+            )
+            if error:
+                return render(**error)
 
             context_kwargs['spots'] = self.get_table_spots(pivot_table)
             context_kwargs['title'] = table_title
@@ -125,7 +139,7 @@ class DataAnalyzeView(FormView):
             context_kwargs['columns'] = table_columns
 
             response_kwargs['context'] = context_kwargs
-
+        # raise Exception
         return render(**response_kwargs)
 
     def get_table_title(self, title, *args):
@@ -135,16 +149,42 @@ class DataAnalyzeView(FormView):
             title = '{} per {}'.format(title, arg)
         return title
 
+    def has_large_table_error(self, table_columns, table_rows, row,
+                                 column, context_kwargs, response_kwargs):
+        """Check and return error if pivot table has too many field classes.
+        """
+
+        # Only possible for street address at this moment.
+        # Make it more generic in the future if needed.
+
+        if row == 'Street address' or column == 'Street address':
+            if len(table_columns) > self.field_class_limit or \
+                    len(table_rows) > self.field_class_limit:
+
+                context_kwargs['error'] = \
+                    'Too many street addresses get included, try to narrow ' \
+                    'the street addresses included in this analysis. ' \
+                    '(< {})'.format(str(self.field_class_limit))
+
+                response_kwargs['context'] = context_kwargs
+                return response_kwargs
+
+        return False
+
     def get_table_row_fields(self, pivot_table):
+        """ Return row names of pivot table. """
         return map(str, pivot_table.index)
 
     def get_table_column_fields(self, pivot_table):
-
-        return [column_field[1:] if isinstance(column_field, set) else column_field
+        """ Return column names of pivot table. """
+        return [column_field[1:]
+                if isinstance(column_field, set) else column_field
                 for column_field in list(pivot_table)]
 
     def transfer_large_fields(self, *fields):
-        """ Filter and transfer field with large amount of unique values. """
+        """Filter and transfer field(can be handled) with large amount of 
+        unique values . 
+        """
 
         return [LARGE_FIELD_MAP[field]
                 if field in LARGE_FIELD_MAP.keys() else field
@@ -184,9 +224,9 @@ class DataAnalyzeView(FormView):
                     condition = form_data[field.field]
 
                 filter_conditions[field] = condition
-
-                if field.field == 'search_street_address':
-                    filter_conditions[field] = [condition]
+                #
+                # if field.field == 'search_street_address':
+                #     filter_conditions[field] = [condition]
 
         return filter_conditions
 
@@ -240,6 +280,8 @@ class DataAnalyzeView(FormView):
         elif field.type == 'max_number':
             condition = self.get_maximum_number_logical_condition(
                 df, field, int(value))
+        elif field.type == 'contain':
+            condition = self.get_contain_logical_condition(df, field, value)
 
         return condition
 
@@ -258,6 +300,11 @@ class DataAnalyzeView(FormView):
 
         return df[field.data_file_field].isin(choices)
 
+    def get_contain_logical_condition(self, df, field, value):
+        """ Return logical condition for contain case. """
+        # raise Exception
+        return df[field.data_file_field].str.contains(value, case=False)
+
     def conjunction(self, conditions):
         """ Return conjunct logical conditions. """
 
@@ -269,4 +316,9 @@ class InsightsView(TemplateView):
     template_name = 'dwelling/data_insights.html'
 
 
+    def get_context_data(self, **kwargs):
 
+        context = INSIGHTS_TABLES_PARAMETER[int(self.kwargs['order'])-1]
+        context['order'] = self.kwargs['order']
+
+        return context

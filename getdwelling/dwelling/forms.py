@@ -106,7 +106,7 @@ class AnalyzeInputForm(forms.Form):
     )
     search_street_address = forms.CharField(
         required=False,
-        label="Search Street Address:",
+        label="Street Address Keyword:",
     )
 
     # Graph information.
@@ -148,5 +148,5 @@ class AnalyzeInputForm(forms.Form):
             Filter_field('dwelling_type', 'choices', 'Dwelling type'),
             Filter_field('dwelling_number_min', 'min_number', 'Dwelling number'),
             Filter_field('dwelling_number_max', 'max_number', 'Dwelling number'),
-            Filter_field('search_street_address', 'choices', 'Street address')
+            Filter_field('search_street_address', 'contain', 'Street address')
         )
