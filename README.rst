@@ -19,6 +19,10 @@ An interactive web application providing live gathering, processing, visualisati
 
 .. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Pivot%20Table.png
 
+**Our Insight Page**
+
+.. image:: https://github.com/mingdongt/Get-Dwelling/blob/master/web_pages/Insight.png
+
 Data source
 -----------
 
