@@ -38,9 +38,9 @@ New column "Dwelling number class" got added to make it possible to classify rec
 
 **File Format Transfer**
 
-1. The original data file is transferred from *CSV* format to *HDF5* format to make it read fastest.
+1. The original data file is transferred from *CSV* format to *HDF5* format to help *pandas* read fastest. 
 
-2. The original data file is transferred from *CSV* format to *JSON* format to make it read by AJAX (only for this moment, API views would be enabled for data source page in the future).
+2. The original data file also got transferred to static *JSON* file to allow applying AJAX to read data (only for this moment, API views would be enabled for data source page in the future).
 
 Settings
 --------
