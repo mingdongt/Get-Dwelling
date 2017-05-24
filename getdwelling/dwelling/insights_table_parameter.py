@@ -50,9 +50,48 @@ INSIGHTS_PARAMETER = [
                   [11, 4, 612.0], [11, 5, 612.0], [11, 6, 619.0],
                   [11, 7, 619.0], [11, 8, 632.0], [11, 9, 632.0],
                   [11, 10, 636.0]],
-        'title': 'Count of Dwellings per CLUE small area per Census year between 2006 and 2016.',
-        'argument': 'The top three areas in Melbourne where have most dwellings are: Kensington , North Melbourne, Carlton. And this fact keeps constant in the past 10 years, you may would like to find the most livable area from these areas.',
+        'title': 'Count of Dwellings per CLUE small area per Census year '
+                 'between 2006 and 2016.',
+        'argument': 'The top three areas in Melbourne where have most'
+                    ' dwellings are: Kensington , North Melbourne, Carlton. '
+                    'And this fact keeps constant in the past 10 years, you '
+                    'may would like to find the most livable area from '
+                    'these areas.',
 
+    },
+    {
+        'order': 2,
+        'rows': ['2012', '2016', 'New Dwelling Number'],
+        'columns': [('Dwelling number', 'Carlton'),
+                    ('Dwelling number', 'Docklands'),
+                    ('Dwelling number', 'East Melbourne'),
+                    ('Dwelling number', 'Kensington'),
+                    ('Dwelling number', 'Melbourne (CBD)'),
+                    ('Dwelling number', 'Melbourne (Remainder)'),
+                    ('Dwelling number', 'North Melbourne'),
+                    ('Dwelling number', 'Parkville'),
+                    ('Dwelling number', 'Port Melbourne'),
+                    ('Dwelling number', 'South Yarra'),
+                    ('Dwelling number', 'Southbank'),
+                    ('Dwelling number', 'West Melbourne (Residential)')],
+        'spots': [[0, 0, 8723], [0, 1, 4246], [0, 2, 3050], [0, 3, 4889],
+                  [0, 4, 12476], [0, 5, 953], [0, 6, 6744], [0, 7, 2013],
+                  [0, 8, 1], [0, 9, 2682], [0, 10, 7335], [0, 11, 1808],
+
+                  [1, 0, 10527], [1, 1, 6012], [1, 2, 3095], [1, 3, 5210],
+                  [1, 4, 19430], [1, 5, 963], [1, 6, 7498], [1, 7, 2529],
+                  [1, 8, 2], [1, 9, 2735], [1, 10, 10447], [1, 11, 2594],
+
+                  [2, 0, 1804], [2, 1, 1766], [2, 2, 45], [2, 3, 321],
+                  [2, 4, 6954], [2, 5, 10], [2, 6, 754], [2, 7, 516],
+                  [2, 8, 1], [2, 9, 53], [2, 10, 3112], [2, 11, 786]],
+
+        'title': 'Dwelling Number per CLUE small area in 2012 and 2016',
+        'argument': 'The top three areas in Melbourne where have most'
+                    ' new dwellings in the past 5 years are: Melbourne (CBD)'
+                    '(6954), Southbank(3112), Carlton(1804). This shows the '
+                    'most popular and demanding living areas are around city '
+                    'for people in Melbourne in the recent 5 years.',
     },
 
 

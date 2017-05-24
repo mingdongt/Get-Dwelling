@@ -12,7 +12,8 @@ from django.views.generic import (
 from django.shortcuts import render
 
 from .forms import AnalyzeInputForm
-from insights_table_parameter import INSIGHTS_PARAMETER
+from .insights_table_parameter import INSIGHTS_PARAMETER
+
 DATA_FILE_NAME = 'data.h5'
 
 LARGE_FIELD_MAP = {
@@ -139,7 +140,7 @@ class DataAnalyzeView(FormView):
             context_kwargs['columns'] = table_columns
 
             response_kwargs['context'] = context_kwargs
-        raise Exception
+        # raise Exception
         return render(**response_kwargs)
 
     def get_table_title(self, title, *args):
