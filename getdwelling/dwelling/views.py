@@ -140,7 +140,6 @@ class DataAnalyzeView(FormView):
             context_kwargs['columns'] = table_columns
 
             response_kwargs['context'] = context_kwargs
-        # raise Exception
         return render(**response_kwargs)
 
     def get_table_title(self, title, *args):
@@ -202,6 +201,7 @@ class DataAnalyzeView(FormView):
                 if pandas.isnull(unit):
                     spots.append([row, column, 0])
                 else:
+                    unit = float("%.f" % int(unit))
                     spots.append([row, column, unit])
                 column += 1
             row += 1

@@ -1,4 +1,8 @@
-
+"""This module saves the parameters for insight pages. The reason we hardcoded
+it is because the result is constant, so it's unnecessary to generate them 
+every time and it will be much faster to load with given parameter compared 
+with generating parameters every time.
+"""
 
 INSIGHTS_PARAMETER = [
     {
@@ -59,6 +63,7 @@ INSIGHTS_PARAMETER = [
                     'these areas.',
 
     },
+
     {
         'order': 2,
         'rows': ['2012', '2016', 'New Dwelling Number'],
@@ -91,8 +96,105 @@ INSIGHTS_PARAMETER = [
                     ' new dwellings in the past 5 years are: Melbourne (CBD)'
                     '(6954), Southbank(3112), Carlton(1804). This shows the '
                     'most popular and demanding living areas are around city '
-                    'for people in Melbourne in the recent 5 years.',
+                    'for people in Melbourne in the recent 5 years, which '
+                    'reflects the trend of investment and development of real'
+                    ' estate in Melbourne.',
     },
+
+    {
+        'rows': [''],
+        'columns': [
+            'Carlton', 'Docklands', 'East Melbourne', 'Kensington',
+            'Melbourne (CBD)', 'Melbourne (Remainder)', 'North Melbourne',
+            'Parkville', 'Port Melbourne', 'South Yarra', 'Southbank',
+            'West Melbourne (Industrial)', 'West Melbourne (Residential)'],
+        'spots': [
+            [0, 0, 5.0], [0, 1, 66.0], [0, 2, 4.0], [0, 3, 1.0],
+            [0, 4, 39.0], [0, 5, 51.0], [0, 6, 3.0], [0, 7, 2.0],
+            [0, 8, 1.0], [0, 9, 3.0], [0, 10, 138.0], [0, 11, 1.0],
+            [0, 12, 2.0]],
+        'title': 'Average of Dwelling number per CLUE small area',
+        'argument':'In southbank, the average of dwelling number is extremely'
+                   ' higher than that in other areas. It means that it has a'
+                   ' demand for dwelling with high capacity. And it is exactly'
+                   ' according to its region feature of Southbank which is '
+                   'the area where most big businesses host at.',
+    },
+
+    {
+        'rows': ['Melbourne (CBD)'],
+        'columns': [('Dwelling number', 'House/Townhouse'),
+                    ('Dwelling number', 'Residential Apartments'),
+                    ('Dwelling number', 'Student Apartments')],
+        'spots': [[0, 0, 39.0], [0, 1, 280.0], [0, 2, 7.0]],
+        'title': 'Count of Records of Dwellings per Dwelling type in Melbourne'
+                 ' CBD in 2016',
+        'argument': 'In Melbourne CBD, the most dwellings are apartments. It '
+                    'indicates the architectural style of city from Victoria '
+                    'government in certain level.',
+    },
+
+    {
+        'rows': [''],
+        'columns': [
+            "106-116 A'Beckett Street", '108-112 Capel Street',
+            '116-118 Little Bourke Street', '116-120 Bouverie Street',
+            '117-121 Bouverie Street', '127-133 Leicester Street',
+            '127-135 Pelham Street', '137-139 Palmerston Street',
+            '139-143 Bouverie Street', '144-146 Queensberry Street',
+            '146-148 Victoria Parade', '146-152 Victoria Parade',
+            "15-19 O'Connell Street", '157-175 Royal Parade',
+            '16-26 Orr Street', '175 Grattan Street', '182-190 The Avenue',
+            '19A David Street', '19B David Street', '2 Boundary Road',
+            '2-14 Cobden Street', '2-6 High Street', '223 Berkeley Street',
+            '238-242 Flinders Street', '24-30 Barkly Place',
+            '251-257 Cardigan Street', '266-270 Faraday Street',
+            '296-300 Little Lonsdale Street', '3-11 High Street',
+            '303-309 Royal Parade', '312-318 La Trobe Street',
+            '335-347 Swanston Street', '35-41 Lonsdale Street',
+            '38-40 Howard Street', '4-6 High Street', '402-408 Lonsdale Street',
+            '408 Lonsdale Street', '42-50 Barry Street', '439-445 Lonsdale Street',
+            '46-56 Drummond Street', '462-468 Swanston Street',
+            '470-496 Swanston Street', '5-17 Flemington Road',
+            '50-58 MacKenzie Street', '51-63 Villiers Street',
+            '522-536 Swanston Street', '546-568 Lygon Street',
+            '57-65 Drummond Street', '570 Lygon Street',
+            '576-606 Lygon Street', '591-593 Elizabeth Street',
+            '621A Swanston Street', '71-79 Bouverie Street',
+            '740-750 Swanston Street', '75-79 Flemington Road',
+            '768-800 Swanston Street', '768-804 Swanston Street',
+            '8-14 Vale Street', '864-866 Swanston Street',
+            '870-874 Swanston Street', '9-13 Earl Street',
+            '97-107 Berkeley Street', '97-115 Berkeley Street'],
+        'spots': [[0, 0, 15.0], [0, 1, 8.0], [0, 2, 9.0], [0, 3, 12.0],
+                  [0, 4, 14.0], [0, 5, 12.0], [0, 6, 8.0], [0, 7, 12.0],
+                  [0, 8, 10.0], [0, 9, 3.0], [0, 10, 2.0], [0, 11, 1.0],
+                  [0, 12, 12.0], [0, 13, 15.0], [0, 14, 10.0], [0, 15, 14.0],
+                  [0, 16, 3.0], [0, 17, 8.0], [0, 18, 8.0], [0, 19, 8.0],
+                  [0, 20, 3.0], [0, 21, 12.0], [0, 22, 12.0], [0, 23, 15.0],
+                  [0, 24, 12.0], [0, 25, 3.0], [0, 26, 10.0], [0, 27, 14.0],
+                  [0, 28, 8.0], [0, 29, 14.0], [0, 30, 2.0], [0, 31, 15.0],
+                  [0, 32, 13.0], [0, 33, 8.0], [0, 34, 2.0], [0, 35, 8.0],
+                  [0, 36, 7.0], [0, 37, 12.0], [0, 38, 15.0], [0, 39, 7.0],
+                  [0, 40, 12.0], [0, 41, 15.0], [0, 42, 12.0], [0, 43, 6.0],
+                  [0, 44, 3.0], [0, 45, 12.0], [0, 46, 15.0], [0, 47, 15.0],
+                  [0, 48, 60.0], [0, 49, 15.0], [0, 50, 10.0], [0, 51, 12.0],
+                  [0, 52, 7.0], [0, 53, 14.0], [0, 54, 2.0], [0, 55, 2.0],
+                  [0, 56, 8.0], [0, 57, 2.0], [0, 58, 10.0], [0, 59, 3.0],
+                  [0, 60, 14.0], [0, 61, 2.0], [0, 62, 1.0]
+                  ],
+        'title': 'Count of Records of Dwelling(Student apartment) per Street '
+                 'address',
+        'argument':'By simply filtering the student apartment from all '
+                   'records, you could actually find the addresses of all '
+                   'student apartments in Melbourne. And most of them are in '
+                   'Carlton, which is because the two biggest universities in '
+                   'Melbourne: Melbourne University and RMIT University are '
+                   'hosting in the city. And Carlton is the area between this '
+                   'two University. Would you like to find more things '
+                   'intersting? Try our analysis tool now!'
+    },
+
 
 
 
